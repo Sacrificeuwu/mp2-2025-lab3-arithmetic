@@ -1,0 +1,126 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "samples",
+					"jsonFile" : "directory-samples-Debug-026e8de27727d40e5852.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "samples",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "test",
+					"jsonFile" : "directory-test-Debug-f18be1977b403cfd1a50.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "gtest",
+					"jsonFile" : "directory-gtest-Debug-2618f1bde6c55d7920ba.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "gtest",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					],
+					"name" : "Project",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "gtest::@0af4add9fe94340e763e",
+					"jsonFile" : "target-gtest-Debug-d3769d28037a9710fc6a.json",
+					"name" : "gtest",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "postfix::@fd003194bc69d7fb51e8",
+					"jsonFile" : "target-postfix-Debug-aad916931823c381773d.json",
+					"name" : "postfix",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "postfix_test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-postfix_test-Debug-9eb3b33af475ea193667.json",
+					"name" : "postfix_test",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/rezov/Desktop/\u043c\u0430\u043c\u0438\u043d\u0430 \u043f\u0430\u043f\u043a\u0430/\u0443\u0447\u0435\u0431\u0430 2 \u043a\u0443\u0440\u0441/\u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u0443\u0440\u0430 \u0432\u044b\u0447\u0438\u0441\u043b \u0441\u0438\u0441\u0442\u0435\u043c/\u041d\u043e\u0432\u0430\u044f \u043f\u0430\u043f\u043a\u0430/mp2-2025-lab3-arithmetic/out/build/x64-Debug",
+		"source" : "C:/Users/rezov/Desktop/\u043c\u0430\u043c\u0438\u043d\u0430 \u043f\u0430\u043f\u043a\u0430/\u0443\u0447\u0435\u0431\u0430 2 \u043a\u0443\u0440\u0441/\u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u0443\u0440\u0430 \u0432\u044b\u0447\u0438\u0441\u043b \u0441\u0438\u0441\u0442\u0435\u043c/\u041d\u043e\u0432\u0430\u044f \u043f\u0430\u043f\u043a\u0430/mp2-2025-lab3-arithmetic"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}

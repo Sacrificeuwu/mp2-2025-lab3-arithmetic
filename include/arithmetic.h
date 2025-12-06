@@ -10,6 +10,16 @@ class TArifmeticExpression {
 	std::map <char, int> priority;
 	std::map <char, double> operands;
 public:
+	TArifmeticExpression() {
+		// Инициализация приоритетов
+		priority['('] = 0;
+		priority[')'] = 0;
+		priority['+'] = 1;
+		priority['-'] = 1;
+		priority['*'] = 2;
+		priority['/'] = 2;
+		priority['^'] = 3;
+	}
 	TArifmeticExpression(const std::string& expression) {
 		if (expression.empty()) {
 			throw std::string("empty expression ");
@@ -31,6 +41,10 @@ public:
 		postfix = "";
 		lexems.clear();
 	}
+	bool hasInfix() {
+		if (infix.empty()) return true;
+		else return false;
+	}
 	void toLexems() {
 		lexems.clear();
 		for (int i = 0; i < infix.length(); ++i) {
@@ -48,13 +62,13 @@ public:
 			}
 		}
 	}
+
 	void toPostfix() {
 		toLexems();
 		std::string variables = "";
 		TStack<char> stack;
 		bool openingBracket = false;
 		for (int i = 0; i < size(lexems); ++i) {
-			const char& lexem = lexems[i];
 			if (lexems[i] >= 'a' && lexems[i] <= 'z') {
 				variables += lexems[i];
 			}
@@ -99,7 +113,6 @@ public:
 		while (!stack.isEmpty()) {
 			variables += stack.pop();
 		}
-		std::cout << variables;
 		postfix = variables;
 	}
 

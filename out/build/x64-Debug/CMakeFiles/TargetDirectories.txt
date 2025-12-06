@@ -1,0 +1,11 @@
+C:/Users/rezov/Desktop/мамина папка/учеба 2 курс/архитектура вычисл систем/Новая папка/mp2-2025-lab3-arithmetic/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/rezov/Desktop/мамина папка/учеба 2 курс/архитектура вычисл систем/Новая папка/mp2-2025-lab3-arithmetic/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/rezov/Desktop/мамина папка/учеба 2 курс/архитектура вычисл систем/Новая папка/mp2-2025-lab3-arithmetic/out/build/x64-Debug/samples/CMakeFiles/postfix.dir
+C:/Users/rezov/Desktop/мамина папка/учеба 2 курс/архитектура вычисл систем/Новая папка/mp2-2025-lab3-arithmetic/out/build/x64-Debug/samples/CMakeFiles/edit_cache.dir
+C:/Users/rezov/Desktop/мамина папка/учеба 2 курс/архитектура вычисл систем/Новая папка/mp2-2025-lab3-arithmetic/out/build/x64-Debug/samples/CMakeFiles/rebuild_cache.dir
+C:/Users/rezov/Desktop/мамина папка/учеба 2 курс/архитектура вычисл систем/Новая папка/mp2-2025-lab3-arithmetic/out/build/x64-Debug/test/CMakeFiles/postfix_test.dir
+C:/Users/rezov/Desktop/мамина папка/учеба 2 курс/архитектура вычисл систем/Новая папка/mp2-2025-lab3-arithmetic/out/build/x64-Debug/test/CMakeFiles/edit_cache.dir
+C:/Users/rezov/Desktop/мамина папка/учеба 2 курс/архитектура вычисл систем/Новая папка/mp2-2025-lab3-arithmetic/out/build/x64-Debug/test/CMakeFiles/rebuild_cache.dir
+C:/Users/rezov/Desktop/мамина папка/учеба 2 курс/архитектура вычисл систем/Новая папка/mp2-2025-lab3-arithmetic/out/build/x64-Debug/gtest/CMakeFiles/gtest.dir
+C:/Users/rezov/Desktop/мамина папка/учеба 2 курс/архитектура вычисл систем/Новая папка/mp2-2025-lab3-arithmetic/out/build/x64-Debug/gtest/CMakeFiles/edit_cache.dir
+C:/Users/rezov/Desktop/мамина папка/учеба 2 курс/архитектура вычисл систем/Новая папка/mp2-2025-lab3-arithmetic/out/build/x64-Debug/gtest/CMakeFiles/rebuild_cache.dir
