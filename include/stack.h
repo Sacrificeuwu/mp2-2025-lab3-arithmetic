@@ -22,7 +22,12 @@ public:
 		if (initSize <= 0) {
 			throw std::string("Size must be positive");
 		}
-		data = new T[initSize];
+		try {
+			data = new T[initSize];
+		}
+		catch (const std::string& error) {
+			throw std::string("Failed to allocate memory for stack");
+		}
 	}
 	~TStack() {
 		delete[] data;

@@ -10,59 +10,59 @@ int main() {
     while (true) {
     std::string input;
     int choice;
-    std::cout << "1. Ввести новое выражение" << std::endl;
-    std::cout << "2. Преобразовать в постфиксную форму" << std::endl;
-    std::cout << "3. Ввести значения переменных" << std::endl;
-    std::cout << "4. Вычислить выражение" << std::endl;
-    std::cout << "Выберите действие: ";
+    std::cout << "1. Enter a new expression" << std::endl;
+    std::cout << "2. Convert to postfix form" << std::endl;
+    std::cout << "3. Enter variable values" << std::endl;
+    std::cout << "4. Evaluate the expression" << std::endl;
+    std::cout << "Select action: ";
     std::cin >> choice;
     system("cls");
         switch (choice) {
         case 1:
-            std::cout << "Введите свое выражение: " << std::endl;
+            std::cout << "Enter your expression: " << std::endl;
             std::cin.ignore(); 
             std::getline(std::cin, input);
 
             if (input.empty()) {
-                std::cout << "Ошибка: выражение пустое" << std::endl;
+                std::cout << "Error: expression is empty" << std::endl;
                 break;
             }
 
             try {
                 expression.setExpression(input);
-                std::cout << "Выражение успешно установлено" << std::endl;
+                std::cout << "Expression set successfully" << std::endl;
             }
             catch (const std::string& error) {
-                std::cout << "Ошибка: " << error << std::endl;
+                std::cout << "Error" << error << std::endl;
             }
             break;
         case 2:
             if (expression.hasInfix()) {
-                std::cout << "Cначала введите выражение" << std::endl;
+                std::cout << "First enter the expression" << std::endl;
                 break;
             }
             try {
                 expression.toPostfix();
-                std::cout << "Постфиксная форма: " << expression.getPostfix() << std::endl;
+                std::cout << "Postfix form: " << expression.getPostfix() << std::endl;
             }
             catch (const std::string& error) {
-                std::cout << "Ошибка " << error << std::endl;
+                std::cout << "Error " << error << std::endl;
             }
             break;
         case 3:
             if (expression.hasInfix()) {  
-                std::cout << "Сначала введите выражение" << std::endl;
+                std::cout << "First enter the expression" << std::endl;
                 break;
             }
-            std::cout << "Для выхода нажмите 0" << std::endl;
+            std::cout << "To exit, press 0" << std::endl;
             double valInp;
             char nameInp;
             while (true) {
-                std::cout << "Введите имя переменной (одна буква) или 0 для выхода: ";
+                std::cout << "Enter a variable name (one letter) or 0 to exit:";
                 std::string temp ;
                 std::cin >> temp;
                 if (temp == " ") {
-                    std::cout << "Пустой ввод." << std::endl;
+                    std::cout << "Empty input." << std::endl;
                     continue;
                 }
 
@@ -70,50 +70,50 @@ int main() {
                     break;
                 }
                 if (temp.length() != 1) {
-                    std::cout << "Ошибка. Попробуйте снова" << std::endl;
+                    std::cout << "Error. Try again" << std::endl;
                     temp = " ";
                     continue;
                 }
                 if (temp >= "a" && temp <= "z") nameInp = temp[0];
                 else {
-                    std::cout << "Ошибка. Попробуйте снова" << std::endl;
+                    std::cout << "Error. Try again" << std::endl;
                     temp = " ";
                     continue;
                 }
 
-                std::cout << "Введите значение для переменной " << nameInp << ": ";
+                std::cout << "Enter a value for the variable " << nameInp << ": ";
                 std::cin >> valInp;
                 std::cout << std::endl;
 
                 try {
                     if (valInp != 0) {
                         expression.setValue(nameInp, valInp);
-                        std::cout << "Значение переменной " << nameInp << " установлено в " << valInp << std::endl;
+                        std::cout << "Variable value " << nameInp << " installed in " << valInp << std::endl;
                     }
                     else {
                         continue;
                     }
                 }
                 catch (const std::string& error) {
-                    std::cout << "Ошибка: " << error << std::endl;
+                    std::cout << "Error " << error << std::endl;
                 }
             }
             break;
         case 4:
             if (expression.hasInfix()) {
-                std::cout << "Cначала введите выражение" << std::endl;
+                std::cout << "First enter the expression" << std::endl;
                 break;
             }
             try {
                 double result = expression.calculate();
-                std::cout << "Результат: " << result << std::endl;
+                std::cout << "Result:" << result << std::endl;
             }
             catch (const std::string& error) {
-                std::cout << "Ошибка: " << error << std::endl;
+                std::cout << "Error: " << error << std::endl;
             }
             break;
         default:
-            std::cout << "Неверный выбор. Попробуйте снова." << std::endl;
+            std::cout << "Incorrect selection. Try again." << std::endl;
             break;
         
 
