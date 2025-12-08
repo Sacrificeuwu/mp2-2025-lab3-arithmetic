@@ -2,7 +2,8 @@
 #include <iostream>
 #include "arithmetic.h"
 #include <cstdlib>
-
+#include <sstream>
+#include <string>
 //a+b*c+(d*e+f)*g
 int main() {
     TArifmeticExpression expression;
@@ -18,14 +19,22 @@ int main() {
     system("cls");
         switch (choice) {
         case 1:
-            std::cout << "Введите свое выражение " << std::endl;
-            std::cin >> input;
+            std::cout << "Введите свое выражение: " << std::endl;
+            std::cin.ignore(); 
+            std::getline(std::cin, input);
+
             if (input.empty()) {
-                std::cout << "Ошибка: выражение пустое " << std::endl;
+                std::cout << "Ошибка: выражение пустое" << std::endl;
                 break;
             }
-            else expression.setExpression(input);
-            std::cout << "Выражение успешно установлено" << std::endl;
+
+            try {
+                expression.setExpression(input);
+                std::cout << "Выражение успешно установлено" << std::endl;
+            }
+            catch (const std::string& error) {
+                std::cout << "Ошибка: " << error << std::endl;
+            }
             break;
         case 2:
             if (expression.hasInfix()) {
@@ -41,25 +50,49 @@ int main() {
             }
             break;
         case 3:
-            if (expression.hasInfix()) {
-                std::cout << "Cначала введите выражение" << std::endl;
+            if (expression.hasInfix()) {  
+                std::cout << "Сначала введите выражение" << std::endl;
                 break;
             }
-            std::cout << "Для выхода нажмите 0";
+            std::cout << "Для выхода нажмите 0" << std::endl;
             double valInp;
             char nameInp;
             while (true) {
                 std::cout << "Введите имя переменной (одна буква) или 0 для выхода: ";
-                std::cin >> nameInp;
-                if (nameInp == '0') {
+                std::string temp ;
+                std::cin >> temp;
+                if (temp == " ") {
+                    std::cout << "Пустой ввод." << std::endl;
+                    continue;
+                }
+
+                if (temp == "0") {
                     break;
                 }
+                if (temp.length() != 1) {
+                    std::cout << "Ошибка. Попробуйте снова" << std::endl;
+                    temp = " ";
+                    continue;
+                }
+                if (temp >= "a" && temp <= "z") nameInp = temp[0];
+                else {
+                    std::cout << "Ошибка. Попробуйте снова" << std::endl;
+                    temp = " ";
+                    continue;
+                }
+
                 std::cout << "Введите значение для переменной " << nameInp << ": ";
                 std::cin >> valInp;
                 std::cout << std::endl;
+
                 try {
-                    expression.setValue(nameInp, valInp);
-                    std::cout << "Установлено" << std::endl;
+                    if (valInp != 0) {
+                        expression.setValue(nameInp, valInp);
+                        std::cout << "Значение переменной " << nameInp << " установлено в " << valInp << std::endl;
+                    }
+                    else {
+                        continue;
+                    }
                 }
                 catch (const std::string& error) {
                     std::cout << "Ошибка: " << error << std::endl;
@@ -79,6 +112,10 @@ int main() {
                 std::cout << "Ошибка: " << error << std::endl;
             }
             break;
+        default:
+            std::cout << "Неверный выбор. Попробуйте снова." << std::endl;
+            break;
+        
 
         }
 

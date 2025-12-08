@@ -26,6 +26,7 @@ public:
 	}
 	~TStack() {
 		delete[] data;
+		top = -1;
 	}
 	bool isEmpty() const {
 		return top == -1;
