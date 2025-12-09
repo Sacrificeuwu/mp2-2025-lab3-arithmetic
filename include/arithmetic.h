@@ -2,7 +2,7 @@
 #include <vector>
 #include <map>
 #include <stack.h>
-
+#include <string>
 class TArifmeticExpression {
 	std::string infix;
 	std::string postfix;
@@ -33,13 +33,92 @@ public:
 		priority['/'] = 3;
 		priority['^'] = 4;
 	}
-	void setExpression(const std::string& expression) {
-		if (expression.empty()) {
-			throw std::string("empty expression");
+	bool checkValid(const std::string& expression, int& errorPosition, std::string& errorMessage) {
+		int bracketBalance = 0;
+		bool expectingOperand = true; 
+
+		for (int i = 0; i < expression.length(); ++i) {
+			char cur = expression[i];
+			if (isspace(cur)) {
+				continue;
+			}
+			if (!((cur >= 'a' && cur <= 'z') ||
+				cur == '+' || cur == '-' || cur == '*' ||
+				cur == '/' || cur == '^' || cur == '(' || cur == ')')) {
+				errorPosition = i;
+				errorMessage = "!" ;
+				return false;
+			}
+
+			if (cur == '(') {
+				bracketBalance++;
+				if (!expectingOperand) {
+					errorPosition = i;
+					errorMessage = "Operator expected before '('";
+					return false;
+				}
+				expectingOperand = true;
+			}
+			else if (cur == ')') {
+				bracketBalance--;
+				if (expectingOperand && expression[i - 1] != ')') {
+					errorPosition = i;
+					errorMessage = "Empty parentheses or missing operand before ')'";
+					return false;
+				}
+				if (bracketBalance < 0) {
+					errorPosition = i;
+					errorMessage = "Extra closing parenthesis";
+					return false;
+				}
+				expectingOperand = false; 
+			}
+
+			else if (cur >= 'a' && cur <= 'z') {
+				if (!expectingOperand) {
+					errorPosition = i;
+					errorMessage = std::string("Operator was expected before ") + cur ;
+					return false;
+				}
+				expectingOperand = false; 
+			}
+			else if (cur == '+' || cur == '-' || cur == '*' || cur == '/' || cur == '^') {
+				if (expectingOperand) { 
+					errorPosition = i;
+					errorMessage = std::string("An operand was expected before ") + cur ;
+					return false;
+				}
+				expectingOperand = true; 
+			}
 		}
+		if (expectingOperand) {
+			errorPosition = expression.length() - 1;
+			errorMessage = "The expression ends with the operator";
+			return false;
+		}
+
+		if (bracketBalance > 0) {
+			errorPosition = expression.length() - 1;
+			errorMessage = "Missing closing parentheses";
+			return false;
+		}
+
+		return true;
+	}
+
+	void setExpression(const std::string& expression) {
+		int errorPosition;
+		std::string errorMessage;
+
+		if (!checkValid(expression, errorPosition, errorMessage)) {
+			std::string error = "Error in expression at position " + std::to_string(errorPosition +1) + ": " + errorMessage;
+			throw error;
+		}
+
 		infix = expression;
 		postfix = "";
 		lexems.clear();
+		operands.clear(); 
 	}
 	bool hasInfix() {
 		if (infix.empty()) return true;
@@ -62,7 +141,7 @@ public:
 			}
 		}
 	}
-
+	
 	void toPostfix() {
 		toLexems();
 		std::string variables = "";
@@ -91,9 +170,6 @@ public:
 						}
 						openingBracket = false;
 					}
-					else {
-						throw std::string("not found '('");
-					}
 				}
 				else if (cur_prior >= stack_prior) {
 					stack.push(lexems[i]);
@@ -105,9 +181,7 @@ public:
 					//variables += stack.pop();
 					stack.push(lexems[i]);
 				}
-				else {
-					throw std::string("Anknown simb");
-				}
+
 			}
 		}
 		while (!stack.isEmpty()) {

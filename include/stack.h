@@ -31,7 +31,7 @@ public:
 	}
 	~TStack() {
 		delete[] data;
-		top = -1;
+		data = nullptr;
 	}
 	bool isEmpty() const {
 		return top == -1;

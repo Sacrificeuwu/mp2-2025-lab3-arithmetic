@@ -1,2 +1,15 @@
 # ninja log v6
 9	750	7864062853940680	samples/CMakeFiles/postfix.dir/main_arithmetic.cpp.obj	dc8a1cde57cf2f58
+25	375	7869238441371336	samples/CMakeFiles/postfix.dir/__/src/arithmetic.cpp.obj	4c274a2baf7afa92
+30	376	7869238441371336	test/CMakeFiles/postfix_test.dir/__/src/arithmetic.cpp.obj	d86c4b70689017db
+35	941	7869238441527584	test/CMakeFiles/postfix_test.dir/test_main.cpp.obj	4f9d63bb832a8845
+38	957	7869238441527584	test/CMakeFiles/postfix_test.dir/test_stack.cpp.obj	c6cc512b0d815e51
+32	1037	7869238441371336	test/CMakeFiles/postfix_test.dir/test_arithmetic.cpp.obj	851cb8a44dbc9334
+20	1638	7869238441371336	gtest/CMakeFiles/gtest.dir/gtest-all.cc.obj	e84bb2bca1709052
+13	66	7869239122377471	gtest/gtest.lib	cc578c076a5a8a77
+11	719	7869239122377471	test/CMakeFiles/postfix_test.dir/test_arithmetic.cpp.obj	851cb8a44dbc9334
+11	714	7869240868980207	test/CMakeFiles/postfix_test.dir/test_arithmetic.cpp.obj	851cb8a44dbc9334
+8	519	7869241739361315	samples/CMakeFiles/postfix.dir/main_arithmetic.cpp.obj	dc8a1cde57cf2f58
+11	722	7869241739517582	test/CMakeFiles/postfix_test.dir/test_arithmetic.cpp.obj	851cb8a44dbc9334
+521	796	7869241744517561	samples/postfix.exe	c9c54fe0b1688aea
+725	1001	7869241746552766	test/postfix_test.exe	9d809de13eec1af

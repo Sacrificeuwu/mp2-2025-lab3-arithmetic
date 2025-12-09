@@ -30,10 +30,10 @@ int main() {
 
             try {
                 expression.setExpression(input);
-                std::cout << "Expression set successfully" << std::endl;
+                std::cout << "Expression successfully installed: " << expression.getInfix() << std::endl;
             }
             catch (const std::string& error) {
-                std::cout << "Error" << error << std::endl;
+                std::cout << "Error: " << error << std::endl;
             }
             break;
         case 2:
@@ -59,6 +59,7 @@ int main() {
             char nameInp;
             while (true) {
                 std::cout << "Enter a variable name (one letter) or 0 to exit:";
+                valInp = 0.0;
                 std::string temp ;
                 std::cin >> temp;
                 if (temp == " ") {
@@ -83,6 +84,12 @@ int main() {
 
                 std::cout << "Enter a value for the variable " << nameInp << ": ";
                 std::cin >> valInp;
+                if (std::cin.fail()) {
+                    std::cout << "Error: Invalid input. Please enter a valid number." << std::endl;
+                    std::cin.clear(); 
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+                    continue;
+                }
                 std::cout << std::endl;
 
                 try {
