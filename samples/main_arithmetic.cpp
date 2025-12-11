@@ -1,14 +1,18 @@
 // реализация пользовательского приложения
 #include <iostream>
-#include "arithmetic.h"
+#include <arithmetic.h>
 #include <cstdlib>
 #include <sstream>
 #include <string>
 //a+b*c+(d*e+f)*g
 int main() {
     TArifmeticExpression expression;
+    //expression.setExpression("1+1");
+    //expression.toPostfix();
+    //std::cout << expression.calculate();
     while (true) {
     std::string input;
+    std::vector<char> toEnter;
     int choice;
     std::cout << "1. Enter a new expression" << std::endl;
     std::cout << "2. Convert to postfix form" << std::endl;
@@ -17,7 +21,9 @@ int main() {
     std::cout << "Select action: ";
     std::cin >> choice;
     system("cls");
-        switch (choice) {
+    double valInp;
+    std::string nameInp;
+    switch (choice) {
         case 1:
             std::cout << "Enter your expression: " << std::endl;
             std::cin.ignore(); 
@@ -55,10 +61,14 @@ int main() {
                 break;
             }
             std::cout << "To exit, press 0" << std::endl;
-            double valInp;
-            char nameInp;
-            while (true) {
-                std::cout << "Enter a variable name (one letter) or 0 to exit:";
+            toEnter = expression.simbToEnter();
+            while (size(toEnter) != 0) {
+                std::cout << "Your simb: ";
+                for (int i = 0; i < size(toEnter); i++) {
+                    std::cout << toEnter[i] << " ";
+                }
+                std::cout << std::endl;
+                std::cout << "Enter name:" << std::endl;
                 valInp = 0.0;
                 std::string temp ;
                 std::cin >> temp;
@@ -75,7 +85,12 @@ int main() {
                     temp = " ";
                     continue;
                 }
-                if (temp >= "a" && temp <= "z") nameInp = temp[0];
+                auto it = std::find(toEnter.begin(), toEnter.end(), temp[0]);
+                if (it != toEnter.end()) {
+                    nameInp = temp[0];
+                    toEnter.erase(it);
+
+                }
                 else {
                     std::cout << "Error. Try again" << std::endl;
                     temp = " ";
@@ -123,9 +138,10 @@ int main() {
             std::cout << "Incorrect selection. Try again." << std::endl;
             break;
         
-
+        
         }
 
     }
+
     return 0;
 }

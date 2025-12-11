@@ -38,27 +38,27 @@ TEST(TArifmeticExpression, ToPostfixSimpleExpression) {
 TEST(TArifmeticExpression, ToPostfixComplexExpression) {
     TArifmeticExpression expr("a+b*c");
     expr.toPostfix();
-    EXPECT_EQ(expr.getPostfix(), "abc*+");
+    EXPECT_EQ(expr.getPostfix(), "a b c * +");
 }
 
 TEST(TArifmeticExpression, ToPostfixMismatchedParentheses) {
-    TArifmeticExpression expr("a+b)");
-    ASSERT_ANY_THROW(expr.toPostfix());
+    TArifmeticExpression expr;
+    ASSERT_ANY_THROW(expr.setExpression("a+b)"));
 }
 
 TEST(TArifmeticExpression, SetValueInvalidVariable) {
     TArifmeticExpression expr("a+b");
-    ASSERT_ANY_THROW(expr.setValue('1', 5.0));
+    ASSERT_ANY_THROW(expr.setValue("1", 5.0));
 }
 
 TEST(TArifmeticExpression, CalculateSimpleAddition) {
     TArifmeticExpression expr("a+b");
-    expr.setValue('a', 5.0);
-    expr.setValue('b', 3.0);
+    expr.setValue("a", 5);
+    expr.setValue("b", 3);
     expr.toPostfix();
 
-    double result = expr.calculate();
-    EXPECT_DOUBLE_EQ(result, 8.0);
+    int result = expr.calculate();
+    EXPECT_EQ(result, 8); 
 }
 
 TEST(TArifmeticExpression, GetInfixReturnsCorrectValue) {
