@@ -4,6 +4,7 @@
 #include <stack.h>
 #include <sstream>
 #include <string>
+#include <limits>
 class TArifmeticExpression {
 	std::string infix;
 	std::string postfix;
@@ -292,16 +293,34 @@ public:
 				case '+': stack.push(b + a); break;
 				case '-': stack.push(b - a); break;
 				case '*': stack.push(b * a); break;
-				case '/': stack.push(b / a); break;
+				case '/': {
+					if (a == 0) {
+						throw std::string("Div by zero");
+					}
+					else {
+						stack.push(b / a);
+						break;
+					}
+				}
+				case '^': {
+						stack.push(pow(b, a));
+						break;
+					}
 				default: throw std::string("Unknown operator: " + token);
 				}
 
 			}
 		}
 		if (stack.size() != 1) {
-			throw std::string("HAHAHHAHa");
+			throw std::string("size!");
 		}
 		return stack.pop();
+	}
+	void clearAllExpr() {
+		infix.clear();
+		postfix.clear();
+		lexems.clear();
+		operands.clear();
 	}
 	bool isNumber(const std::string& s) {
 		try {

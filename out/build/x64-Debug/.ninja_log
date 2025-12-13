@@ -70,3 +70,7 @@
 7	1510	7870805527591303	gtest/CMakeFiles/gtest.dir/gtest-all.cc.obj	e84bb2bca1709052
 1513	1551	7870805542698131	gtest/gtest.lib	cc578c076a5a8a77
 1551	1684	7870805543096430	test/postfix_test.exe	9d809de13eec1af
+7	584	7873543990811652	samples/CMakeFiles/postfix.dir/main_arithmetic.cpp.obj	dc8a1cde57cf2f58
+11	765	7873543990811652	test/CMakeFiles/postfix_test.dir/test_arithmetic.cpp.obj	851cb8a44dbc9334
+585	801	7873543996592914	samples/postfix.exe	c9c54fe0b1688aea
+767	1025	7873543998467920	test/postfix_test.exe	9d809de13eec1af

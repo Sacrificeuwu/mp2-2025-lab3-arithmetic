@@ -6,10 +6,10 @@
 #include <string>
 //a+b*c+(d*e+f)*g
 int main() {
-    TArifmeticExpression expression;
     //expression.setExpression("1+1");
     //expression.toPostfix();
     //std::cout << expression.calculate();
+    TArifmeticExpression expression;
     while (true) {
     std::string input;
     std::vector<char> toEnter;
@@ -129,6 +129,7 @@ int main() {
             try {
                 double result = expression.calculate();
                 std::cout << "Result:" << result << std::endl;
+                expression.clearAllExpr();
             }
             catch (const std::string& error) {
                 std::cout << "Error: " << error << std::endl;
